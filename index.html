@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Ibu Eni Sulistiyani</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,sans-serif;
+    background:#030008;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+canvas{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+}
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    background:
+        radial-gradient(circle at 20% 20%,#7c3aed55,transparent 30%),
+        radial-gradient(circle at 80% 70%,#ec489955,transparent 30%),
+        radial-gradient(circle at 50% 100%,#2563eb44,transparent 30%);
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    opacity:.15;
+    background-image:
+        linear-gradient(#ffffff11 1px,transparent 1px),
+        linear-gradient(90deg,#ffffff11 1px,transparent 1px);
+    background-size:50px 50px;
+    transform:perspective(500px) rotateX(60deg) scale(1.5);
+    transform-origin:center bottom;
+}
+
+/* ================= OPENING ================= */
+
+#opening{
+    position:fixed;
+    inset:0;
+    z-index:100;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:#030008;
+    transition:1.5s cubic-bezier(.77,0,.18,1);
+}
+
+.open-content{
+    width:90%;
+    max-width:750px;
+}
+
+.small{
+    letter-spacing:5px;
+    color:#c084fc;
+    font-size:12px;
+    font-weight:700;
+}
+
+.open-content h1{
+    margin-top:25px;
+    font-family:"Playfair Display",serif;
+    font-size:clamp(45px,9vw,90px);
+    line-height:1;
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #e9d5ff,
+        #f0abfc,
+        #fff
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradient 5s infinite;
+}
+
+.open-content h2{
+    margin-top:20px;
+    font-size:clamp(20px,4vw,30px);
+    color:#f9a8d4;
+}
+
+.open-content p{
+    margin:25px auto;
+    max-width:550px;
+    line-height:1.8;
+    color:#aaa1b5;
+}
+
+.open-btn{
+    margin-top:20px;
+    padding:17px 35px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#7c3aed,#ec4899);
+    color:white;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:
+        0 0 30px #a855f766,
+        0 15px 50px #000;
+    transition:.4s;
+}
+
+.open-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 60px #ec4899aa;
+}
+
+/* ================= MAIN ================= */
+
+main{
+    max-width:1000px;
+    margin:auto;
+    padding:90px 20px;
+}
+
+.hero{
+    min-height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.badge{
+    padding:9px 18px;
+    border:1px solid #ffffff22;
+    border-radius:50px;
+    background:#ffffff08;
+    backdrop-filter:blur(15px);
+    color:#e9d5ff;
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+.hero h1{
+    margin-top:30px;
+    font-family:"Playfair Display",serif;
+    font-size:clamp(50px,11vw,105px);
+    line-height:.95;
+    background:linear-gradient(120deg,#fff,#c084fc,#f472b6,#fff);
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradient 6s infinite;
+}
+
+.hero h2{
+    margin-top:25px;
+    font-size:clamp(22px,4vw,36px);
+    color:#f9a8d4;
+}
+
+.hero .from{
+    margin-top:18px;
+    color:#9ca3af;
+}
+
+/* ================= GLASS ================= */
+
+.glass{
+    margin-top:40px;
+    padding:clamp(25px,5vw,55px);
+    border-radius:35px;
+    background:linear-gradient(
+        135deg,
+        #ffffff0d,
+        #ffffff03
+    );
+    border:1px solid #ffffff1c;
+    backdrop-filter:blur(25px);
+    box-shadow:
+        0 40px 100px #0008,
+        inset 0 1px 0 #ffffff20;
+}
+
+.title{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    color:#e9d5ff;
+    font-weight:800;
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.title-icon{
+    width:48px;
+    height:48px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:15px;
+    background:linear-gradient(135deg,#7c3aed,#ec4899);
+    box-shadow:0 10px 30px #9333ea55;
+}
+
+/* ================= TEXT ================= */
+
+.letter{
+    color:#d7d0df;
+    font-size:16px;
+    line-height:2;
+}
+
+.letter p{
+    margin-bottom:25px;
+}
+
+.highlight{
+    color:#f0abfc;
+    font-weight:800;
+}
+
+.big{
+    font-size:21px;
+    color:#fff;
+}
+
+/* ================= QUOTE ================= */
+
+.quote{
+    position:relative;
+    margin:45px 0;
+    padding:35px;
+    text-align:center;
+    border-radius:25px;
+    background:
+        linear-gradient(135deg,#7c3aed22,#ec489922);
+    border:1px solid #ffffff18;
+}
+
+.quote .q{
+    font-size:50px;
+    color:#c084fc;
+}
+
+.quote p{
+    font-family:"Playfair Display",serif;
+    font-size:24px;
+    line-height:1.6;
+    color:#fce7f3;
+}
+
+/* ================= SURPRISE ================= */
+
+.surprise{
+    margin-top:60px;
+    text-align:center;
+}
+
+.surprise-btn{
+    padding:17px 28px;
+    border:1px solid #ffffff22;
+    border-radius:50px;
+    color:white;
+    background:#ffffff0b;
+    backdrop-filter:blur(15px);
+    cursor:pointer;
+    font-weight:700;
+    transition:.3s;
+}
+
+.surprise-btn:hover{
+    background:#ffffff18;
+    transform:translateY(-4px);
+}
+
+.hidden-message{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transition:1s ease;
+}
+
+.hidden-message.show{
+    max-height:500px;
+    opacity:1;
+    margin-top:30px;
+}
+
+.hidden-message h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(28px,6vw,45px);
+    color:#f9a8d4;
+}
+
+.hidden-message p{
+    margin-top:15px;
+    color:#bdb4c5;
+    line-height:1.8;
+}
+
+/* ================= SIGNATURE ================= */
+
+.signature{
+    text-align:center;
+    margin-top:60px;
+    padding-top:40px;
+    border-top:1px solid #ffffff15;
+}
+
+.heart{
+    font-size:50px;
+    animation:pulse 1.5s infinite;
+}
+
+.signature h2{
+    margin-top:15px;
+    color:#f9a8d4;
+}
+
+.signature p{
+    margin-top:8px;
+    color:#8d8495;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes gradient{
+    0%{background-position:0%}
+    50%{background-position:100%}
+    100%{background-position:0%}
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.2)}
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.reveal{
+    animation:fade 1.5s ease forwards;
+}
+
+footer{
+    text-align:center;
+    padding:50px 20px 80px;
+    color:#655c6d;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+<div class="bg"></div>
+<div class="grid"></div>
+
+
+<!-- ================= OPENING ================= -->
+
+<div id="opening">
+
+    <div class="open-content">
+
+        <div class="small">
+            A SPECIAL MESSAGE
+        </div>
+
+        <h1>
+            Untuk Ibu Eni
+        </h1>
+
+        <h2>
+            Dari seorang murid bernama<br>
+            <b>MAULANA IBRAHIM</b>
+        </h2>
+
+        <p>
+            Ada sesuatu yang ingin disampaikan.
+            Bukan sekadar ucapan biasa,
+            tetapi sebuah pesan kecil yang dibuat
+            khusus untuk guru yang sangat berarti.
+        </p>
+
+        <button class="open-btn" onclick="openPage()">
+            ✨ BUKA PESAN ✨
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+    <section class="hero">
+
+        <div class="badge">
+            ✦ 25 NOVEMBER • HARI GURU ✦
+        </div>
+
+        <h1>
+            Selamat<br>
+            Hari Guru
+        </h1>
+
+        <h2>
+            Ibu Eni Sulistiyani 🌷
+        </h2>
+
+        <div class="from">
+            Sebuah persembahan dari <b>MAULANA IBRAHIM</b>
+        </div>
+
+    </section>
+
+
+    <!-- LETTER -->
+
+    <section class="glass">
+
+        <div class="title">
+            <div class="title-icon">💌</div>
+            Surat Kecil Untuk Ibu
+        </div>
+
+        <div class="letter">
+
+            <p class="big">
+                <span class="highlight">
+                Untuk Ibu Eni Sulistiyani yang saya hormati,
+                </span>
+            </p>
+
+            <p>
+                Di hari yang begitu istimewa ini, saya ingin
+                mengucapkan sesuatu yang mungkin sederhana,
+                tetapi saya tuliskan dengan penuh rasa hormat
+                dan rasa terima kasih yang tulus.
+                <b>Selamat Hari Guru, Ibu.</b>
+            </p>
+
+            <p>
+                Terima kasih karena Ibu telah menjadi seseorang
+                yang tidak hanya mengajarkan ilmu di dalam kelas,
+                tetapi juga memberikan banyak pelajaran tentang
+                kehidupan. Dari Ibu, saya belajar bahwa pendidikan
+                bukan hanya mengenai angka, nilai, tugas, atau ujian,
+                tetapi juga tentang bagaimana menjadi manusia yang
+                lebih baik.
+            </p>
+
+            <p>
+                Saya tahu bahwa menjadi seorang guru bukanlah
+                pekerjaan yang mudah. Setiap hari Ibu harus
+                menghadapi berbagai macam karakter siswa,
+                menjelaskan pelajaran berulang kali,
+                memberikan nasihat, mengingatkan ketika kami
+                melakukan kesalahan, dan tetap berusaha memberikan
+                yang terbaik meskipun mungkin Ibu sendiri sedang
+                merasa lelah.
+            </p>
+
+            <p>
+                Mungkin kami sebagai murid terkadang tidak menyadari
+                seberapa besar usaha yang telah Ibu lakukan.
+                Terkadang kami kurang memperhatikan, terkadang
+                membuat kesalahan, terkadang juga belum mampu
+                memahami semua yang Ibu ajarkan.
+                Tetapi semakin kami tumbuh, semakin kami menyadari
+                bahwa setiap teguran dan nasihat dari seorang guru
+                sebenarnya merupakan bentuk perhatian.
+            </p>
+
+            <div class="quote">
+
+                <div class="q">❝</div>
+
+                <p>
+                    Guru mungkin hanya mengajar selama beberapa jam,
+                    tetapi ilmu dan nasihatnya dapat menemani
+                    seorang murid sepanjang hidupnya.
+                </p>
+
+            </div>
+
+            <p>
+                Ibu Eni, mungkin suatu saat nanti saya akan
+                melanjutkan perjalanan saya ke tempat yang berbeda.
+                Saya mungkin akan bertemu banyak orang baru,
+                belajar dari banyak orang, dan memiliki pengalaman
+                yang berbeda-beda. Namun saya percaya bahwa ada
+                beberapa sosok yang tidak akan mudah dilupakan,
+                dan salah satunya adalah guru yang pernah
+                memberikan ilmu dan kebaikannya dengan tulus.
+            </p>
+
+            <p>
+                Saya ingin mengucapkan terima kasih untuk setiap
+                ilmu yang Ibu berikan. Terima kasih untuk setiap
+                nasihat yang mungkin dulu terasa biasa,
+                tetapi ternyata memiliki arti yang besar.
+                Terima kasih karena Ibu telah mengingatkan kami
+                ketika salah dan mendukung kami ketika mencoba
+                melakukan sesuatu yang baik.
+            </p>
+
+            <p>
+                Jika suatu hari nanti saya berhasil mencapai
+                cita-cita dan menjadi seseorang yang membanggakan,
+                saya berharap Ibu juga menjadi salah satu orang
+                yang bisa tersenyum dan berkata bahwa pernah ada
+                seorang murid bernama <span class="highlight">
+                MAULANA IBRAHIM</span> yang pernah Ibu ajar.
+            </p>
+
+            <p>
+                Saya mungkin belum bisa membalas semua kebaikan
+                Ibu sekarang. Saya juga mungkin belum mampu
+                menunjukkan seberapa berarti semua yang telah
+                Ibu lakukan. Tetapi saya ingin Ibu tahu bahwa
+                perjuangan seorang guru tidak pernah benar-benar
+                sia-sia.
+            </p>
+
+            <p>
+                Setiap ilmu yang diberikan akan terus berjalan.
+                Setiap nasihat akan terus diingat.
+                Setiap kebaikan akan terus memiliki tempat
+                di hati murid-muridnya.
+            </p>
+
+            <p>
+                Oleh karena itu, di hari yang spesial ini,
+                saya ingin memberikan apresiasi yang sebesar-besarnya
+                untuk Ibu. Semoga Ibu selalu diberikan kesehatan,
+                kebahagiaan, kesabaran, kekuatan, dan keberkahan.
+            </p>
+
+            <p>
+                Semoga setiap langkah Ibu selalu dipermudah.
+                Semoga semua perjuangan Ibu mendapatkan balasan
+                yang jauh lebih indah. Dan semoga Ibu selalu
+                memiliki alasan untuk tersenyum setiap harinya.
+            </p>
+
+            <p>
+                Teruslah menjadi guru yang menginspirasi,
+                karena mungkin bagi seorang guru satu pelajaran
+                hanyalah bagian dari rutinitas sehari-hari.
+                Tetapi bagi seorang murid, satu pelajaran,
+                satu nasihat, bahkan satu kalimat dari gurunya
+                bisa menjadi sesuatu yang diingat bertahun-tahun
+                kemudian.
+            </p>
+
+            <p>
+                <span class="highlight">
+                Selamat Hari Guru, Ibu Eni Sulistiyani.
+                </span>
+            </p>
+
+            <p>
+                Terima kasih atas semua ilmu, kesabaran,
+                perhatian, perjuangan, dan ketulusan Ibu.
+                Terima kasih karena telah menjadi bagian
+                dari perjalanan pendidikan saya.
+            </p>
+
+            <p>
+                Semoga suatu hari nanti saya bisa membuat Ibu
+                bangga dan membuktikan bahwa semua ilmu yang
+                pernah Ibu berikan kepada saya benar-benar
+                memiliki arti.
+            </p>
+
+        </div>
+
+
+        <!-- SURPRISE -->
+
+        <div class="surprise">
+
+            <button class="surprise-btn" onclick="surprise()">
+                🎁 Ada Satu Pesan Lagi...
+            </button>
+
+            <div class="hidden-message" id="surprise">
+
+                <h2>
+                    Ibu Eni, Terima Kasih ❤️
+                </h2>
+
+                <p>
+                    Dari semua guru yang pernah mengajarkan ilmu,
+                    selalu ada guru yang meninggalkan kesan
+                    tersendiri di hati muridnya.
+                    Terima kasih karena Ibu telah menjadi
+                    bagian dari perjalanan saya.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIGNATURE -->
+
+        <div class="signature">
+
+            <div class="heart">
+                ❤️
+            </div>
+
+            <h2>
+                MAULANA IBRAHIM
+            </h2>
+
+            <p>
+                Untuk Ibu Eni Sulistiyani
+            </p>
+
+            <p>
+                Dengan penuh rasa hormat dan terima kasih.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    ✦ Dibuat dengan penuh rasa terima kasih untuk seorang guru yang luar biasa ✦
+</footer>
+
+
+<script>
+
+/* ================= OPEN PAGE ================= */
+
+function openPage(){
+
+    const opening=document.getElementById("opening");
+
+    opening.style.opacity="0";
+    opening.style.transform="scale(1.15)";
+
+    setTimeout(()=>{
+        opening.remove();
+        window.scrollTo(0,0);
+    },1500);
+
+    startParticles();
+}
+
+
+/* ================= SURPRISE ================= */
+
+function surprise(){
+
+    const box=document.getElementById("surprise");
+
+    box.classList.toggle("show");
+
+    if(box.classList.contains("show")){
+        explosion();
+    }
+}
+
+
+/* ================= PARTICLES ================= */
+
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+let particles=[];
+
+function resize(){
+
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
+
+}
+
+resize();
+
+window.addEventListener("resize",resize);
+
+
+function createParticle(){
+
+    return {
+        x:Math.random()*canvas.width,
+        y:canvas.height+20,
+        size:Math.random()*3+1,
+        speed:Math.random()*1.5+.5,
+        alpha:Math.random()*.7+.2,
+        drift:(Math.random()-.5)*.5
+    };
+
+}
+
+
+function startParticles(){
+
+    for(let i=0;i<100;i++){
+        particles.push(createParticle());
+    }
+
+    animate();
+}
+
+
+function animate(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach((p,i)=>{
+
+        p.y-=p.speed;
+        p.x+=p.drift;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle=
+            `rgba(216,180,254,${p.alpha})`;
+
+        ctx.fill();
+
+        if(p.y<-20){
+            particles[i]=createParticle();
+        }
+
+    });
+
+    requestAnimationFrame(animate);
+
+}
+
+
+/* ================= SURPRISE EXPLOSION ================= */
+
+function explosion(){
+
+    const symbols=[
+        "❤️",
+        "✨",
+        "🌷",
+        "🌸",
+        "💜",
+        "⭐"
+    ];
+
+    for(let i=0;i<50;i++){
+
+        const el=document.createElement("div");
+
+        el.innerHTML=
+            symbols[Math.floor(Math.random()*symbols.length)];
+
+        el.style.position="fixed";
+        el.style.left="50%";
+        el.style.top="55%";
+        el.style.fontSize=
+            (15+Math.random()*25)+"px";
+        el.style.zIndex="999";
+        el.style.pointerEvents="none";
+
+        document.body.appendChild(el);
+
+        const angle=Math.random()*Math.PI*2;
+        const distance=100+Math.random()*400;
+
+        const x=Math.cos(angle)*distance;
+        const y=Math.sin(angle)*distance;
+
+        el.animate([
+            {
+                transform:"translate(-50%,-50%) scale(0)",
+                opacity:1
+            },
+            {
+                transform:
+                `translate(calc(-50% + ${x}px),
+                           calc(-50% + ${y}px))
+                 scale(1.5)`,
+                opacity:0
+            }
+        ],{
+            duration:1200+Math.random()*700,
+            easing:"cubic-bezier(.2,.8,.2,1)"
+        });
+
+        setTimeout(()=>{
+            el.remove();
+        },2000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
